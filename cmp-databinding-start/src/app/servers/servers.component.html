@@ -1,0 +1,34 @@
+<label>Server Name</label>
+
+<input type="text"
+  class="form-control"
+  [(ngModel)]="serverName" >  
+
+<button 
+    class="btn btn-primary" 
+    [disabled]="!allowNewServer" 
+    (click)="onCreateServer()" >
+        Add Server
+</button>
+
+<p>{{ allowNewServer }}</p>  
+<p [innerText] = "allowNewServer" ></p>
+
+<p *ngIf="serverCreated; else noServer">Server was Created !! Server Name is {{ serverName }}</p>
+
+<ng-template #noServer >
+<p>No Server was Created !!</p>
+</ng-template>
+
+<app-server *ngFor="let server of servers"> </app-server>
+
+<hr>
+
+<select [(ngModel)]="selectedValue">  
+  <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>  
+</select>  
+<div class='row' [ngSwitch]="selectedValue">  
+  <div *ngSwitchCase="'One'">One is Pressed</div>  
+  <div *ngSwitchCase="'Two'">Two is Selected</div>  
+  <div *ngSwitchDefault>Default Option</div>  
+</div>  

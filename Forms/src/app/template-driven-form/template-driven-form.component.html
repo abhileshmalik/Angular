@@ -1,0 +1,134 @@
+<div class="row">
+  <div class="col-12">
+    <div class="container">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <br />
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h3 style="color: blue">Template Driven Form</h3>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>First Name : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="text"
+              id="firstName"
+              class="form-control"
+              name="firstName"
+              ngModel
+              required
+              #firstName="ngModel"
+            />
+            <span
+              class="help-block"
+              *ngIf="!firstName.valid && firstName.touched"
+              >Please enter the first name!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Last Name : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="text"
+              id="lastName"
+              class="form-control"
+              name="lastName"
+              ngModel
+              required
+              #lastName="ngModel"
+            />
+            <span class="help-block" *ngIf="!lastName.valid && lastName.touched"
+              >Please enter the last name!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Email : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              name="email"
+              ngModel
+              required
+              email
+              #email="ngModel"
+            />
+            <span class="help-block" *ngIf="!email.valid && email.touched"
+              >Please enter the valid email address!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Password : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              name="password"
+              ngModel
+              required
+              #password="ngModel"
+            />
+            <span class="help-block" *ngIf="!password.valid && password.touched"
+              >Please enter the password!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Confirm Password : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              name="confirmPassword"
+              ngModel
+              required
+              #confirmPassword="ngModel"
+            />
+            <span class="help-block" *ngIf="!confirmPassword.valid && confirmPassword.touched"
+              >Please enter the confirm password!</span
+            >
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-2">
+            <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+              Submit
+            </button>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

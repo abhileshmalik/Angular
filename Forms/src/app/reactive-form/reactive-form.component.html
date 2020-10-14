@@ -1,0 +1,139 @@
+<div class="row">
+  <div class="col-12">
+    <div class="container">
+      <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <br />
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h3 style="color: blue">Reactive Form</h3>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>First Name : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="text"
+              id="firstName"
+              class="form-control"
+              formControlName="firstName"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                !reactiveForm.get('firstName').valid &&
+                reactiveForm.get('firstName').touched
+              "
+              >Please enter the first name!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Last Name : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="text"
+              id="lastName"
+              class="form-control"
+              formControlName="lastName"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                !reactiveForm.get('lastName').valid &&
+                reactiveForm.get('lastName').touched
+              "
+              >Please enter the last name!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Email: </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="email"
+              id="email"
+              class="form-control"
+              formControlName="email"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                !reactiveForm.get('email').valid &&
+                reactiveForm.get('email').touched
+              "
+              >Please enter the valid email!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Password : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                !reactiveForm.get('password').valid &&
+                reactiveForm.get('password').touched
+              "
+              >Please enter the password!</span
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 form-group"></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <label>Confirm Password : </label>
+          </div>
+          <div class="col-md-5">
+            <input
+              type="password"
+              id="confirmPassword"
+              class="form-control"
+              formControlName="confirmPassword"
+            />
+            <span
+              class="help-block"
+              *ngIf="
+                !reactiveForm.get('confirmPassword').valid &&
+                reactiveForm.get('confirmPassword').touched
+              "
+              >Please enter the confirm password!</span
+            >
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-2">
+            <button class="btn btn-success" type="submit" [disabled] = "!reactiveForm.valid">Submit</button>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

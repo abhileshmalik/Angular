@@ -1,0 +1,37 @@
+<div class="form-group row">
+    <form (ngSubmit)="onSearchProd()" #fd="ngForm">
+    <input type="text"
+            id="searchedProd"
+            class="col-md-10"
+            placeholder="Search"
+            ngModel
+            name="searchedProd"
+            required >
+    <span>
+            <button class="btn btn-success" 
+            type="submit"
+            [disabled]="!fd.valid" >Search</button> </span>
+    </form>         
+</div>
+
+<div>
+    <img
+        src="assets/images/poster.jpeg"
+        alt="Home Image"
+        class="img-responsive homePoster1"
+    />
+</div>
+
+<div class="jumbotron">
+    <h2 class="homePageHeader" ><strong> Welcome to ProCart </strong></h2>
+</div>
+
+<div>
+    <img
+        src="assets/images/poster2.jpg"
+        alt="Home Image"
+        class="img-responsive homePoster1"
+    />
+</div>
+
+<br> <br> <br>

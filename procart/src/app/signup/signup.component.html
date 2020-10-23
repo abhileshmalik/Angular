@@ -1,0 +1,116 @@
+<h3>New User Registration</h3>
+<br> <br>
+<div class="container">
+  <div class="row">            
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
+        
+        <div class="form-group col-md-4">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              formControlName="name"
+              class="form-control">
+              <span
+              *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
+              class="help-block">Please enter your Name </span>
+        </div>
+  
+        <div class="form-group col-md-4">
+            <label for="age">Your Age</label>
+            <input
+              type="text"
+              id="age"
+              formControlName="age"
+              class="form-control">
+              <span
+                *ngIf="!signupForm.get('age').valid && signupForm.get('age').touched"
+                  class="help-block">
+          
+              <span *ngIf="signupForm.get('age').errors['min'] "> The minimum age should be 18 </span>
+              <span *ngIf="signupForm.get('age').errors['required'] "> This field is Required!  </span>
+                   
+            </span>
+        </div>
+  
+        <div class="form-group col-md-4">
+            <label for="email">Email ID </label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="form-control">
+              <span
+              *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched"
+              class="help-block">Please enter a valid EmailID </span>
+        </div>
+        
+        <div class="form-group col-md-4">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          formControlName="username"
+          class="form-control">
+          <span
+          *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched"
+          class="help-block">
+          
+            <span *ngIf="signupForm.get('username').errors['nameIsForbidden'] "> This username is Invalid! </span>
+            <span *ngIf="signupForm.get('username').errors['required'] "> This field is Required!  </span>
+                   
+          </span>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              formControlName="password"
+              class="form-control">
+              <span
+              *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched"
+                class="help-block">
+                  <span *ngIf="signupForm.get('password').errors['required'] "> Please enter the Password </span>
+                  <span *ngIf="signupForm.get('password').errors['minlength'] "> Password should contain minimum 8 characters </span>
+                  <span *ngIf="signupForm.get('password').errors['maxlength'] "> Password can have maximum 32 characters </span>
+              </span>
+        </div>
+        <div class="form-group col-md-4" style="margin-bottom: 50px;">
+            <label for="confirmpassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmpassword"
+              formControlName="confirmpassword"
+              class="form-control">
+              <span
+              *ngIf="!signupForm.get('confirmpassword').valid && signupForm.get('confirmpassword').touched"
+                class="help-block">
+                  <span *ngIf="signupForm.get('confirmpassword').errors['required'] "> Please enter the Password </span>
+                  <span *ngIf="signupForm.get('confirmpassword').errors['minlength'] "> Password should contain minimum 8 characters </span>
+                  <span *ngIf="signupForm.get('confirmpassword').errors['maxlength'] "> Password can have maximum 32 characters </span>
+              </span>
+        </div>
+        <br> <br> <br> <br> 
+        <label for="gender">Choose Your Gender - </label>
+        <div class="radio" *ngFor="let gender of genders">
+            <label>
+              <input
+                type="radio"
+                formControlName="gender"
+                [value]="gender">{{ gender }}
+            </label>
+        </div>
+  
+        <br>
+        <span
+          *ngIf="!signupForm.valid && signupForm.touched"
+            class="help-block"> Please enter the valid Form data! </span>
+        <br>
+        
+        <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid" >Register</button> &nbsp; 
+        <button class="btn btn-secondry" type="button" (click)="onReset()">Reset</button>
+
+        </form>
+    </div>
+</div>

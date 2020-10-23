@@ -1,0 +1,24 @@
+<div *ngIf="!prodDetailToggler">
+    <h3>Available Products</h3>
+    <br><br>
+    <div class="container" >
+        <div *ngIf="productList.length" >
+            <app-product-item
+            
+                *ngFor="let productElement of productList; let i = index"
+                [product]="productElement"
+                [index]="i">
+            </app-product-item>
+    
+        </div>
+
+        <br><br><br>
+    </div>
+</div>
+
+<div class="row"
+    *ngIf="!prodDetailToggler" >
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+</div>

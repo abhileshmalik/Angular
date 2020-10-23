@@ -1,0 +1,43 @@
+<div class="row bg-dark">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" routerLink="">
+                  <img
+                    src="assets/images/ProCartLogo.jpg"
+                    width="75"
+                    height="31"
+                    alt="ProCart Logo"
+                  /></a
+                >
+              </div>
+        
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li routerLinkActive="active">
+                        <a class="nav-link" routerLink="">Home</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a class="nav-link" routerLink="/products">Products</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a class="nav-link" routerLink="/aboutus">About Us</a>
+                    </li>
+                </ul>
+                
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li routerLinkActive="active" *ngIf="!isAuthenticated" >
+                        <a class="nav-link" routerLink="/signup">Sign-Up</a>
+                    </li>
+                    <li routerLinkActive="active" *ngIf="!isAuthenticated" >
+                        <a class="nav-link" routerLink="/login">Login</a>
+                    </li>
+                    <li *ngIf="isAuthenticated">
+                      <a style="cursor: pointer;" (click)="onLogout()">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

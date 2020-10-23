@@ -1,0 +1,55 @@
+
+<div *ngIf="isLoading" style="text-align: center;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="container" *ngIf="!isLoading">
+    <h3>User Login</h3>
+    <br> <br>
+  <div class="alert alert-danger" *ngIf="error" >
+    <p>{{ error }}</p>
+  </div>
+    <div class="col-md-9">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group col-md-5" style="margin-bottom: 10px;" >
+              <label for="email">Email ID </label>
+              <input
+                type="text"
+                id="email"
+                formControlName="email"
+                class="form-control">
+                <span
+                *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched"
+                class="help-block">Please enter a valid Email ID </span>
+            </div>
+            <div class="form-group col-md-5" style="margin-bottom: 10px;" >
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  formControlName="password"
+                  class="form-control">
+                    <span
+                      *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+                        class="help-block">
+                          <span *ngIf="loginForm.get('password').errors['required'] "> Please enter the Login Password </span>
+                          <span *ngIf="loginForm.get('password').errors['minlength'] "> Password should contain minimum 8 characters </span>
+                          <span *ngIf="loginForm.get('password').errors['maxlength'] "> Password can have maximum 32 characters </span>
+                    </span>
+            </div>
+            <br> <br> <br> <br> <br>
+            <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid" >Login</button> &nbsp; 
+            <button class="btn btn-secondry" type="button" (click)="onReset()">Reset</button>
+          
+          </form>
+          
+            <br> <br> <br> <br>
+            <h4>New User?
+            <a class="" routerLink="/signup">Register Here</a> </h4>
+
+    
+        
+
+    </div>
+</div>    

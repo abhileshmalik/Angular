@@ -1,1 +1,46 @@
-<p>cart works!</p>
+<div class="container" >
+    <div class="list-group-item clearfix">
+        <img
+            [src]="product?.imagePath"
+            alt="{{ product?.name }}"
+            class="img-responsive col-md-2"
+            style="max-height: 130px"
+        />
+
+        <span class="col-md-3"> 
+
+            <h4 class="list-group-item-heading">{{ product?.name }}</h4>
+            <h5 class="text-muted"> {{ product?.category }} </h5>
+            <br>
+            <p class="list-group-item-text" style="color: blue;"> Rs. {{ product?.price }}</p>
+          
+        </span>
+
+        <span class="col-md-3"> 
+            <br>
+            <h5 class="list-group-item-heading">Select Quantity</h5>
+            <br> 
+            <p class="list-group-item-text"> 1 </p>
+          
+        </span>
+
+        <span class="col-md-3"> 
+            <br>
+            <h5 class="list-group-item-heading">Total Amount Payable</h5> 
+            <p class="list-group-item-text" style="color: blue;" ><strong> Rs. {{ product?.price }}</strong></p>
+          
+        </span>
+
+    </div>
+    <br> <br>
+    
+    <app-alert [message]="error" *ngIf="error" (close)="onHandleError()" > </app-alert>
+    <br> <br>
+    
+    <div>
+        <button class="btn btn-success" (click)="placeOrder()" >Place Order</button>
+    </div>
+
+    <br> <br> <br>
+
+</div>

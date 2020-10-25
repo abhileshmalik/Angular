@@ -2,12 +2,13 @@
     <form (ngSubmit)="onSearchProd()" #fd="ngForm">
     <input type="text"
             id="searchedProd"
-            class="col-md-10"
+            class="col-md-11"
             placeholder="Search"
             ngModel
             name="searchedProd"
             required >
-    <span>
+            &nbsp;
+            <span>
             <button class="btn btn-success" 
             type="submit"
             [disabled]="!fd.valid" >Search</button> </span>

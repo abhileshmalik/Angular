@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from 'rxjs';
 import { AuthService } from '../login/auth.service';
 import { Product } from '../product-list/product.model';
@@ -18,7 +18,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductListService,
               private route: ActivatedRoute,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
@@ -39,6 +40,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   addToCart() {
     if(this.isAuthenticated){
       alert("Product Added");
+      const id = +this.route.snapshot.params['id'];
+      this.router.navigate(['/usercart/'+id]);
     } else {
       this.error = "Please Login to Proceed";
     }

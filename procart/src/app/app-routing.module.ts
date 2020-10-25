@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   { path: 'products/:id', component: ProductDetailsComponent, data:{title: 'Product Details'} },
   { path: 'aboutus', component: AboutusComponent, data:{title: 'About Us'} },  
-  { path: 'usercart', component: CartComponent, canActivate:[AuthGuard], data:{title: 'User Cart'} },  
+  { path: 'usercart/:id', component: CartComponent, canActivate:[AuthGuard], data:{title: 'User Cart'} },  
   
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found'}
